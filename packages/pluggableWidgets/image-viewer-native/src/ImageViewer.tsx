@@ -20,24 +20,27 @@ export const ImageViewer: FunctionComponent<ImageViewerProps<Style>> = props => 
     const getImageDimensions = useCallback(
         async (): Promise<DimensionsType> =>
             new Promise((resolve, reject) => {
-                // switch (source?.type) {
-                //     case "staticImage":
-                // }
-
-                if (source?.type === "staticImage") {
-                    const { width, height } = RNImage.resolveAssetSource(source?.image);
-                    resolve({
-                        width,
-                        height
-                    });
-                } else if (source?.type === "dynamicImage") {
-                    RNImage.getSize(source.image.uri, (width, height) => resolve({ width, height }), reject);
-                } else if (source?.type === "staticSVG") {
-                    resolve(calculateSvgDimensions(source.image));
-                } else if (source?.type === "dynamicSVG") {
-                    resolve({ width: 0, height: 0 });
+                switch (source?.type) {
+                    case "staticImage":
+                        const { width, height } = RNImage.resolveAssetSource(source?.image);
+                        resolve({
+                            width,
+                            height
+                        });
+                        break;
+                    case "dynamicImage":
+                        RNImage.getSize(source.image.uri, (width, height) => resolve({ width, height }), reject);
+                        break;
+                    case "staticSVG":
+                        resolve(calculateSvgDimensions(source.image));
+                        break;
+                    case "dynamicSVG":
+                        resolve({ width: 0, height: 0 });
+                        break;
+                    default:
+                        resolve({ width: 0, height: 0 });
+                        break;
                 }
-                resolve({ width: 0, height: 0 });
             }),
         [source]
     );
@@ -129,9 +132,6 @@ export const ImageViewer: FunctionComponent<ImageViewerProps<Style>> = props => 
             >
                 <ImageIconSVG
                     {...source}
-                    // type={source?.type}
-                    // image={source?.image}
-                    // name={source?.name}
                     dimensions={dimensionsSmall}
                     initialDimensions={initialDimensions}
                     imageStyles={imageStyles}
@@ -142,7 +142,6 @@ export const ImageViewer: FunctionComponent<ImageViewerProps<Style>> = props => 
                 onRequestClose={() => setEnlarged(false)}
                 onDismiss={() => setEnlarged(false)}
                 transparent
-                // presentationStyle="fullScreen"
                 animationType="fade"
                 supportedOrientations={[
                     "portrait",
@@ -152,6 +151,7 @@ export const ImageViewer: FunctionComponent<ImageViewerProps<Style>> = props => 
                     "landscape-right"
                 ]}
             >
+                {/* Render dynamicSVG once to get initial dimensions */}
                 {source?.image &&
                 source.type === "dynamicSVG" &&
                 (!initialDimensions?.width || !initialDimensions?.height) ? (
