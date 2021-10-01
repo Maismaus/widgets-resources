@@ -82,7 +82,6 @@ function calculateByViewbox(attrs: Attributes, viewbox: Size): Size {
 
 export function calculateSvgDimensions(xml: string): Size {
     const root = extractorRegExps.root.exec(xml);
-    console.warn("root", root);
 
     if (root?.[0]) {
         const attrs = parseAttributes(root[0]);

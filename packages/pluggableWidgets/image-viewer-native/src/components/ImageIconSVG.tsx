@@ -26,17 +26,15 @@ export const ImageIconSVG: FunctionComponent<ImageIconSVGProps> = props => {
         <Fragment>
             {image && (type === "staticImage" || type === "dynamicImage") ? (
                 <Image source={image} style={imageStyles(dimensions)} />
-            ) : image && type === "staticSVG" ? (
+            ) : image && type === "staticSVG" && initialDimensions?.width && initialDimensions?.height ? (
                 <SvgXml
                     xml={image}
                     color={"black"}
                     fill={"black"}
                     style={imageStyles(dimensions)}
-                    override={{
-                        height: dimensions?.height,
-                        width: dimensions?.width,
-                        viewBox: `0 0 ${initialDimensions?.width} ${initialDimensions?.height}`
-                    }}
+                    height={dimensions?.height}
+                    width={dimensions?.width}
+                    viewBox={`0 0 ${initialDimensions?.width} ${initialDimensions?.height}`}
                 />
             ) : image && type === "dynamicSVG" && initialDimensions?.width && initialDimensions?.height ? (
                 <SvgUri
@@ -48,11 +46,6 @@ export const ImageIconSVG: FunctionComponent<ImageIconSVGProps> = props => {
                         : null)}
                     viewBox={`0 0 ${initialDimensions?.width} ${initialDimensions?.height}`}
                     style={imageStyles(dimensions)}
-                    // override={{
-                    //     height: dimensions?.height,
-                    //     width: dimensions?.width,
-                    //     viewBox: `0 0 ${initialDimensions?.width} ${initialDimensions?.height}`
-                    // }}
                 />
             ) : image && type === "icon" ? (
                 <Icon icon={image} size={50} />

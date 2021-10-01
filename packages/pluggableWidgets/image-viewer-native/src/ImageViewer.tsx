@@ -69,12 +69,8 @@ export const ImageViewer: FunctionComponent<ImageViewerProps<Style>> = props => 
     }, []);
     const onLayoutSetDimensions = useCallback(
         ({ nativeEvent: { layout } }: LayoutChangeEvent, setDimensions): void => {
-            // TODO: destructure?
             const width = layout.width;
             const height = layout.height;
-            // console.warn("onlayout");
-            // console.warn(width);
-            // console.warn(height);
 
             if (initialDimensions?.width && initialDimensions?.height) {
                 setDimensions({
