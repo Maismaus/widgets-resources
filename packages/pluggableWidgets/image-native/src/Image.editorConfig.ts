@@ -5,7 +5,7 @@ import {
     Properties,
     StructurePreviewProps
 } from "@mendix/piw-utils-internal";
-import { DatasourceEnum, ImageViewerPreviewProps } from "../typings/ImageViewerProps";
+import { DatasourceEnum, ImageViewerPreviewProps } from "../typings/ImageProps";
 import StructurePreviewImageViewerSvg from "./assets/placeholder.svg";
 
 type ImageViewPreviewPropsKey = keyof ImageViewerPreviewProps;

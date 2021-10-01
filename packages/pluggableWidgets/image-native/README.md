@@ -1,3 +1,3 @@
-# Image viewer widget
+# Image widget
 
 Display static or dynamic images.

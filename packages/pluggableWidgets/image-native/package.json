@@ -1,6 +1,6 @@
 {
-  "name": "image-viewer-native",
-  "widgetName": "ImageViewer",
+  "name": "image-native",
+  "widgetName": "Image",
   "version": "1.0.0",
   "description": "Display an image and enlarge it on click",
   "copyright": "© Mendix Technology BV 2021. All rights reserved.",

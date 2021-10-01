@@ -3,7 +3,7 @@ import { Modal, Pressable, Image as RNImage, LayoutChangeEvent } from "react-nat
 import { SvgUri } from "react-native-svg";
 import { flattenStyles, Style } from "@mendix/piw-native-utils-internal";
 import { defaultImageViewerStyle } from "./ui/Styles";
-import { ImageViewerProps } from "../typings/ImageViewerProps";
+import { ImageViewerProps } from "../typings/ImageProps";
 import { calculateSvgDimensions } from "./utils/svgUtils";
 import { DimensionsType, ImageIconSVG } from "./components/ImageIconSVG";
 import { getImageProps } from "./utils/imageUtils";

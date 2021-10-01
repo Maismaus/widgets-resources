@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
-<widget id="com.mendix.widget.native.imageviewer.ImageViewer" supportedPlatform="Native" needsEntityContext="false" offlineCapable="true" xmlns="http://www.mendix.com/widget/1.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mendix.com/widget/1.0/ ../../../node_modules/mendix/custom_widget.xsd" pluginWidget="true">
-    <name>Image viewer</name>
+<widget id="com.mendix.widget.native.image.Image" supportedPlatform="Native" needsEntityContext="false" offlineCapable="true" xmlns="http://www.mendix.com/widget/1.0/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mendix.com/widget/1.0/ ../../../node_modules/mendix/custom_widget.xsd" pluginWidget="true">
+    <name>Image</name>
     <description>Display an image and enlarge it on click.</description>
     <studioProCategory>Images, videos &amp; files</studioProCategory>
     <studioCategory>Images, videos &amp; files</studioCategory>
