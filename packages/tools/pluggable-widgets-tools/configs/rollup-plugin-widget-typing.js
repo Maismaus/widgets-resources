@@ -26,7 +26,7 @@ export function widgetTyping({ sourceDir }) {
             }
             await execShellCommand(
                 `npx pluggable-widgets-tools format:custom-files -- ${propsTypingFilePaths
-                    .map(f => f.replace(/(?<=[/\\])[^/\\]* [^/\\]*(?=[/\\])/g, "'$1'"))
+                    .map(f => `"${f.replace(/(?<=[\/\\])([^\/\\]* [^\/\\]*)(?=[\/\\])/g, "\"$1\"")}"`) // add quotes around path and folders with spaces
                     .join(" ")}`,
                 sourceDir
             );
