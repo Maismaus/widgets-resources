@@ -18,7 +18,11 @@ Even better is creating your widget using [Pluggable Widgets Generator](https://
 
 ## How to use
 
-In your `package.json` scripts, use the following command with the desired task: `pluggable-widgets-tools task`
+In your `package.json` scripts, use the following command with the desired task: `pluggable-widgets-tools task`. If you generated a project using the Pluggable Widgets Generator you can use `npm run dev` to start watching the sourcefiles. 
+
+### Building the widget
+
+Running the package builds the folders `src` content into an .mpk file. The .mpk file is placed in /dist/<version> and the compiled sourcefiles are placed in /dist/tmp/. If a test project is defined in your package.json, the pluggable widget tools automatically builds and deploys into the projects widget folder. Run the Mendix testproject and pluggable widget tools together to have a complete development pipeline. The widget ID is defined in package.json and is constructed as follows: packagePath.name.widgetName. 
 
 ### Available tasks
 
